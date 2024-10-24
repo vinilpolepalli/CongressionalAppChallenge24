@@ -1,4 +1,6 @@
-# CongressionalAppChallenge24
+# Bite.ai
+
+From mosquito bites to tick bites, to bee stings, there’s an app that can help identify what’s bugging you. Meet bite.ai—your personal AI bite expert. The co-founders are Vinil Polepalli (the owner of this repository), and Henry Cantor (Github: Henry-Cantor).
 
 Instructions for viewing this app:
 
