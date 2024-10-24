@@ -14,7 +14,7 @@ Instructions for viewing this app:
 
 Link to the bite guide: https://docs.google.com/document/d/e/2PACX-1vROrJSj57N6Tf6LCf7ZNx7Sfa1ICpSO7Fsi4_FvWE3L7mw1eWViBdg-FuExMiZ1PCtlrFRqhY6BnuwM/pub
 
-Congressional App Challenge Video:
+Congressional App Challenge Video: https://www.youtube.com/watch?v=UfdS7ioMzbM
 
 
 
