@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('src/assets/Bebas Neue/BebasNeue-Regular.ttf') format('truetype');
+}
+
+.about-container {
+    color: white; /* Set the text color to white */
+    padding: 20px; /* Add some padding */
+    background-color: #ff6666; /* Lighter but still vibrant red */
+    font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+    width: 100%; /* Ensure the container takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: -5px 0 10px 0; /* Adjust negative top margin to move the container slightly lower */
+    height: 100%; /* Set a larger height for the container */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: center; /* Center children vertically */
+    align-items: flex-start; /* Align children to the start (left) horizontally */
+    overflow: hidden; /* Hide overflow to prevent scrollbars during animation */
+}
+
+h1 {
+    margin: 0 0 0 40px; /* Increase margin from the left side */
+    padding-bottom: 10px; /* Add padding to separate from the paragraph */
+    font-family: 'BebasNeue', sans-serif; /* Apply BebasNeue font */
+    font-size: 5.5rem; /* Make the font size slightly larger */
+    line-height: 1.2; /* Add more spacing between the lines */
+    animation: slideInFromRight 0.75s ease-out; /* Apply animation */
+}
+
+p {
+    margin: 0 0 0 40px; /* Increase margin from the left side */
+    font-size: 1.2rem; /* Make the font size slightly larger */
+    line-height: 1.6; /* Add more spacing between the lines */
+    animation: slideInFromRight 0.75s ease-out; /* Apply animation */
+}
+.about-container p{
+    padding-right: 5%;
+    padding-bottom: 2.5%;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    margin-top: 40px; /* Add more space above the team section */
+    animation: slideInFromBottom 0.75s ease-out; /* Apply animation */
+}
+
+.team-section h1 {
+    font-family: 'BebasNeue', sans-serif; /* Apply BebasNeue font */
+    font-size: 5rem; /* Make the font size larger to match Mission Statement */
+    margin: 0; /* Remove default margin */
+}
+
+.team-members {
+    display: flex;
+    justify-content: center; /* Center the team members horizontally */
+    gap: 60px; /* Increase space between the team members */
+    animation: slideInFromBottom 0.75s ease-out; /* Apply animation */
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    padding: 5% 20%; /* Increase margin around each team member */
+    animation: slideInFromBottom 0.75s ease-out; /* Apply animation */
+}
+
+.team-member img {
+    width: 150px; /* Set a fixed width for the images */
+    height: 150px; /* Set a fixed height for the images */
+    border-radius: 50%; /* Make the images circular */
+    object-fit: cover; /* Ensure the images cover the area */
+}
+
+.team-info {
+    text-align: center; /* Center text within the team info */
+}
+
+.team-info h2 {
+    font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+    font-size: 2rem; /* Adjust font size as needed */
+    margin: 10px 0 5px 0; /* Add some margin around the name */
+}
+
+.team-info p {
+    display: inline-block; /* Ensure the p element is displayed inline-block */
+    font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+    font-size: 0.75rem; /* Adjust font size as needed */
+    margin: 0; /* Remove default margin */
+    vertical-align: middle; /* Ensure vertical alignment */
+}
+
+
+/* Keyframes for animations */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

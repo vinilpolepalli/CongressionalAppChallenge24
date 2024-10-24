@@ -1,0 +1,455 @@
+/* Apply smooth scrolling behavior to the entire page */
+html {
+  scroll-behavior: smooth;
+  
+}
+
+/* Slow down the scrolling speed */
+body {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* Optional: Snap to sections */
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Optional: Define sections to snap to */
+section {
+  scroll-snap-align: start;
+}
+
+@font-face {
+  font-family: 'SUSE-Light';
+  src: url('src/assets/static/SUSE-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SUSE-Bold';
+  src: url('src/assets/static/SUSE-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SUSE-SemiBold';
+  src: url('src/assets/static/SUSE-SemiBold.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'SUSE-ExtraBold';
+  src: url('src/assets/static/SUSE-ExtraBold.ttf') format('truetype');
+}
+/* Existing styles */
+.landing-page {
+  display: flex;
+  flex-direction: column; /* Ensure elements are stacked vertically */
+  justify-content: center;
+  align-items: center; /* Center elements horizontally */
+  height: 95vh; /* Full viewport height */
+  width: 100%; /* Ensure the container takes full width */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(255, 138, 138, 0.4), rgba(250, 222, 177, 0.4), rgba(225, 246, 255, 0.4)); /* Linear gradient background */
+  position: relative; /* Ensure child elements are positioned relative to this container */
+  overflow: hidden; /* Hide overflow to ensure spots don't go outside the container */
+}
+
+.landing-page h1 {
+  font-family: 'SUSE-ExtraBold', sans-serif; /* Apply SUSE-ExtraBold font */
+  font-size: 72px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  font-weight: 900;
+  display: inline-block; /* Ensure h1 is inline-block for separate animations */
+  animation: slideInFromLeft 0.5s ease-out; /* Apply faster slide-in animation */
+  margin-top: 5%;
+}
+
+.gradient-text {
+  font-family: 'SUSE-ExtraBold', sans-serif; /* Apply SUSE-ExtraBold font */
+  background: linear-gradient(to right, #ff0000, #ff6666); /* Gradient from red to lighter red */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Ensure span is inline-block for separate animations */
+  animation: slideInFromRight 0.5s ease-out; /* Apply faster slide-in animation */
+  padding-left: 2%;
+  font-weight: 900;
+}
+
+.landing-page p {
+  font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+  font-size: 24px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin-top: 3%; /* Add some margin to separate it from the h1 */
+  animation: slideInFromRight 0.5s ease-out; /* Apply slide-in-from-right animation */
+}
+
+.button-container {
+  height: 60px; /* Fixed height to prevent layout shifts */
+  display: flex;
+  align-items: center; /* Center the button vertically */
+  margin-bottom: 19.5%; /* Move the button up by reducing the top margin */
+}
+
+.analyze-button {
+  font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+  font-size: 24px; /* Increase font size */
+  color: white; /* Button text color */
+  background-color: #ff6666; /* Light red background color */
+  border: none; /* Remove default border */
+  border-radius: 50px; /* Rounded corners for pill shape */
+  padding: 15px 30px; /* Increase padding for a bigger button */
+  cursor: pointer; /* Pointer cursor on hover */
+  animation: slideInFromRight 0.5s ease-out; /* Apply slide-in-from-right animation */
+  transition: background-color 0.3s ease, width 0.3s ease; /* Smooth transition for background color and width */
+  position: relative; /* Position relative for pseudo-element */
+  width: 175px; /* Initial width */
+  display: inline-block; /* Ensure inline-block display */
+  vertical-align: middle; /* Align vertically in the middle */
+}
+
+.analyze-button:hover {
+  background-color: #cc3333; /* Darker red background color on hover */
+  width: 250px; /* Expand width on hover */
+}
+
+.analyze-button::after {
+  content: '→'; /* Arrow character */
+  position: absolute; /* Absolute positioning */
+  right: 20px; /* Position it to the right */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.analyze-button:hover::after {
+  opacity: 1; /* Show arrow on hover */
+}
+
+/* Keyframes for slide-in-from-left animation */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for slide-in-from-right animation */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for moving the spots */
+@keyframes moveSpot {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(100vw - 100px), 0);
+  }
+}
+.new-container {
+  padding: 20px;
+  background: rgba(255, 138, 138, 0.4); /* Reverse gradient background */
+  text-align: left; /* Align text to the left */
+  flex: 1; /* Allow the container to grow */
+  width: 100%; /* Ensure the container takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.new-container h2 {
+  margin-top: 0;
+  text-align: left; /* Align heading text to the left */
+  font-family: 'SUSE-Bold', sans-serif; /* Apply SUSE-Bold font */
+  margin-left: 4.5%; /* Set the same margin-left for h2 */
+  font-size: 32px; /* Increase font size for h2 */
+  width: 100%; /* Ensure the heading takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.new-container p {
+  margin-top: 10px;
+  text-align: left; /* Align paragraph text to the left */
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 18px; /* Increase font size for p */
+  margin-left: 20px; /* Set the same margin-left for p */
+  width: 100%; /* Ensure the paragraph takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  line-height: 1.5; /* Increase line height for better readability */
+}
+
+/* Styles for text with icon */
+.text-with-icon {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Ensure the container takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+/* Container for new content *//* Container for new content */
+.content-container {
+  display: flex;
+  justify-content: center; /* Center the container */
+  padding: 20px;
+  width: 100%; /* Ensure the container takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.new-container {
+  padding: 20px;
+  background: rgba(255, 138, 138, 0.4); /* Reverse gradient background */
+  text-align: left; /* Align text to the left */
+  flex: 1; /* Allow the container to grow */
+  width: 100%; /* Ensure the container takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.new-container h2 {
+  margin-top: 0;
+  text-align: left; /* Align heading text to the left */
+  font-family: 'SUSE-Bold', sans-serif; /* Apply SUSE-Bold font */
+  margin-left: 4.5%; /* Set the same margin-left for h2 */
+  font-size: 32px; /* Increase font size for h2 */
+  width: 100%; /* Ensure the heading takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.new-container p {
+  margin-top: 3.5%;
+  text-align: left; /* Align paragraph text to the left */
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 18px; /* Increase font size for p */
+  margin-left: 20px; /* Set the same margin-left for p */
+  width: 100%; /* Ensure the paragraph takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  line-height: 1.5; /* Increase line height for better readability */
+}
+
+/* Styles for text with icon */
+.text-with-icon {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Ensure the container takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center; /* Center the icons */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Ensure the container takes full width */
+  margin-top: 5%; /* Add some space above the icons */
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center items horizontally */
+  margin: 0 10%; /* Space between icon wrappers */
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px; /* Increased width of the icon box */
+  height: 100px; /* Increased height of the icon box */
+  border: 2px solid #000; /* Border around the icon */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px; /* Padding inside the box */
+}
+
+.ai-icon, .guide-icon {
+  width: 75px; /* Increased width of the icon */
+  height: 75px; /* Increased height of the icon */
+}
+
+.icon-text {
+  margin-top: 10px; /* Space between the icon box and the text */
+  text-align: center; /* Center the text */
+  font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-Light font */
+  font-size: 18px; /* Increased font size for the text */
+}
+
+.icon-wrapper p {
+  margin-top: 5%; /* Space between the icon text and the description */
+  text-align: center; /* Center the text */
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 14px; /* Font size for the description */
+  width: 100%; /* Ensure the description takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-left: -10px; /* Shift the text to the left */
+  margin-bottom: 30%;
+}
+
+.vertical-line {
+  width: 2px; /* Width of the line */
+  height: 250px; /* Height of the line to match the icon box */
+  background-color: #000; /* Color of the line */
+  margin: 0 20px; /* Space around the line */
+  margin-bottom: 10%;
+}
+/* Existing styles */
+.landing-page {
+  display: flex;
+  flex-direction: column; /* Ensure elements are stacked vertically */
+  justify-content: center;
+  align-items: center; /* Center elements horizontally */
+  height: 95vh; /* Full viewport height */
+  width: 100%; /* Ensure the container takes full width */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(255, 138, 138, 0.4), rgba(250, 222, 177, 0.4), rgba(225, 246, 255, 0.4)); /* Linear gradient background */
+  position: relative; /* Ensure child elements are positioned relative to this container */
+  overflow: hidden; /* Hide overflow to ensure spots don't go outside the container */
+}
+.offerings-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: flex-start; /* Align items at the top */
+  align-items: center; /* Center items horizontally */
+  height: auto; /* Adjust height as needed */
+  width: 100%; /* Ensure the container takes full width */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(225, 246, 255, 0.4), rgba(250, 222, 177, 0.4), rgba(255, 138, 138, 0.4)); /* Reverse gradient background */
+  padding-top: 20px; /* Add padding at the top if needed */
+}
+
+.offerings-container h2 {
+  font-family: 'SUSE-Bold', sans-serif; /* Apply SUSE-Bold font */
+  font-size: 36px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin: 0 auto; /* Center the heading horizontally */
+}
+
+.offerings-description {
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 18px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin: 10px 0; /* Add margin for spacing */
+  width: 80%; /* Adjust width as needed */
+}
+
+.card {
+  display: flex; /* Use flexbox to align image and content side by side */
+  align-items: flex-start; /* Align items at the top */
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blurred background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the card */
+  margin: 20px 0; /* Space between cards */
+  width: 80%; /* Adjust width as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.card-image {
+  width: 300px; /* Increased width */
+  height: 300px; /* Increased height */
+  border-radius: 10px; /* Same border radius as the card */
+  margin-right: 20px; /* Space between image and content */
+  object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.card-content {
+  flex: 1; /* Allow content to take remaining space */
+}
+
+.card h3 {
+  font-family: 'SUSE-Bold', sans-serif; /* Apply SUSE-Bold font */
+  font-size: 24px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  
+}
+
+.card p {
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 20px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin-top: 2.5%;
+  padding-right: 10%;
+}
+
+.card ol {
+  list-style-type: disc; /* Use disc bullets */
+  padding-left: 20px; /* Add padding to the left */
+  margin-top: 5%; /* Add margin to the top */
+  
+}
+
+.card li {
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 16px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin-bottom: 5px; /* Add margin to the bottom */
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: left;
+}
+
+/* Add margin to the last card to increase space between the cards and the next container */
+.offerings-container .card:last-child {
+  margin-bottom: 40px; /* Adjust the value as needed */
+}
+
+/* Existing styles */
+.landing-page {
+  display: flex;
+  flex-direction: column; /* Ensure elements are stacked vertically */
+  justify-content: center;
+  align-items: center; /* Center elements horizontally */
+  height: 95vh; /* Full viewport height */
+  width: 100%; /* Ensure the container takes full width */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(255, 138, 138, 0.4), rgba(250, 222, 177, 0.4), rgba(225, 246, 255, 0.4)); /* Linear gradient background */
+  position: relative; /* Ensure child elements are positioned relative to this container */
+  overflow: hidden; /* Hide overflow to ensure spots don't go outside the container */
+}
+
+.offerings-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: flex-start; /* Align items at the top */
+  align-items: center; /* Center items horizontally */
+  height: auto; /* Adjust height as needed */
+  width: 100%; /* Ensure the container takes full width */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(225, 246, 255, 0.4), rgba(250, 222, 177, 0.4), rgba(255, 138, 138, 0.4)); /* Reverse gradient background */
+  padding-top: 20px; /* Add padding at the top if needed */
+}
+
+.offerings-container h2 {
+  font-family: 'SUSE-Bold', sans-serif; /* Apply SUSE-Bold font */
+  font-size: 36px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin: 0 auto; /* Center the heading horizontally */
+}
+
+.offerings-description {
+  font-family: 'SUSE-Light', sans-serif; /* Apply SUSE-Light font */
+  font-size: 18px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin: 10px 0; /* Add margin for spacing */
+  width: 80%; /* Adjust width as needed */
+}
+

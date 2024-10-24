@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'SUSE-SemiBold';
+  src: url('src/assets/static/SUSE-SemiBold.ttf') format('truetype'); /* Adjust the path as needed */
+}
+
+.nav {
+  background-color: rgba(255, 255, 255, 0.8); /* Set background color to white with 80% opacity */
+  backdrop-filter: blur(10px); /* Apply a blur effect */
+  padding: 1rem; /* Reduce padding to make the navbar height smaller */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Bambino Bold', sans-serif; /* Apply the font to the navbar */
+  position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure the navbar is above other content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a small shadow to the bottom edge */
+}
+
+.logo img {
+  height: 40px; /* Increase the height to make the logo bigger */
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Add 15px spacing between each button */
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  justify-content: center; /* Center the buttons */
+  margin-left: -50px; /* Move the buttons 50px to the left */
+}
+
+li {
+  display: flex;
+}
+
+a {
+  color: black; /* Change text color to black */
+  text-decoration: none;
+  font-size: 1.25rem; /* Adjust the font size as needed */
+  transition: color 0.3s; /* Smooth transition for hover effects */
+  font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+}
+
+a:hover {
+  color: #ff6666; /* Change text color to a slightly lighter red on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+.active a {
+  font-weight: bold; /* Example style for active link */
+  color: #ff6666; /* Change text color to the same lighter red as hover */
+  text-decoration: underline; /* Underline the text */
+  text-decoration-color: #ff6666; /* Set underline color to the same lighter red */
+}
+
+/* SUSE-SemiBold Font Classes */
+.SUSE-SemiBold {
+  font-family: "SUSE-SemiBold", sans-serif;
+}
+
+.nav-link {
+  margin-right: 20px; /* Adjust the value as needed */
+}
+
+/* Styles for the Bite Guide button */
+.bite-guide-button {
+  background-color: #ff6666; /* Light red color */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 50px; /* Pill-shaped corners */
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer;
+  font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+  font-size: 16px; /* Adjust font size as needed */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  margin-left: auto; /* Push the button to the right */
+  text-align: center; /* Center the text */
+  display: inline-block; /* Ensure the button is displayed inline-block */
+}
+
+.bite-guide-button:hover {
+  background-color: #cc5555; /* Darker red on hover */
+  color: white; /* Ensure text remains white */
+}

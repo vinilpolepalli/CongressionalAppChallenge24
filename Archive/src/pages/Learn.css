@@ -1,0 +1,182 @@
+/* Existing styles */
+
+.about-container {
+    color: white; /* Set the text color to white */
+    padding: 20px; /* Add some padding */
+    background-color: #ff6666; /* Lighter but still vibrant red */
+    font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+    width: 100%; /* Ensure the container takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: -5px 0 10px 0; /* Adjust negative top margin to move the container slightly lower */
+    height: 100%; /* Set a larger height for the container */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: center; /* Center children vertically */
+    align-items: flex-start; /* Align children to the start (left) horizontally */
+    padding-left: 20px; /* Add padding to the left to create some space */
+    overflow: hidden; /* Hide overflow to prevent scrollbars during animation */
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Add space between the text and the image */
+}
+
+h1 {
+    padding-top: 2%;
+    margin: 0 0 0 40px; /* Increase margin from the left side */
+    padding-bottom: 10px; /* Add padding to separate from the paragraph */
+    font-family: 'BebasNeue', sans-serif; /* Apply BebasNeue font */
+    font-size: 5rem; /* Make the font size slightly larger */
+    line-height: 1.2; /* Add more spacing between the lines */
+    animation: slideUp 0.75s ease-out; /* Apply slide-up animation */
+}
+
+p {
+    margin: 0; /* Remove default margin */
+    font-size: 1.2rem; /* Make the font size slightly larger */
+    line-height: 1.6; /* Add more spacing between the lines */
+    animation: slideUp 0.75s ease-out; /* Apply slide-up animation */
+    flex: 1; /* Allow the paragraph to take up available space */
+    padding-left: 3%;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.learn-image {
+    width: 20%; /* Shrink the image size */
+    height: auto;
+    margin-left: 20px; /* Add margin to the left of the image */
+    margin-top: -10%; /* Move the image up by 10% */
+    animation: slideUp 0.75s ease-out; /* Apply slide-up animation */
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    margin-top: 1vw; /* Use viewport width for margin */
+}
+
+.team-section h1 {
+    font-family: 'BebasNeue', sans-serif; /* Apply BebasNeue font */
+    font-size: 5vw; /* Use viewport width for font size */
+    margin: 0; /* Remove default margin */
+    animation: slideUp 0.75s ease-out; /* Apply slide-up animation */
+}
+
+.team-members {
+    display: flex;
+    justify-content: center; /* Center the team members horizontally */
+    gap: 2vw; /* Use viewport width for gap */
+}
+
+.learn-container {
+    display: flex;
+    flex-direction: column; /* Ensure items are placed in a column */
+    align-items: center; /* Center items horizontally */
+    gap: 2vw; /* Use viewport width for gap */
+}
+
+.learn-container h2 {
+    margin: 0; /* Remove default margin */
+    animation: slideUp 0.75s ease-out; /* Apply slide-up animation */
+}
+
+/* Accordion Styles */
+.faq-section {
+    margin-top: 20px;
+    width: 100%; /* Ensure the FAQ section takes full width */
+    max-width: 800px; /* Set a max width for the FAQ section */
+}
+
+.accordion {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%; /* Ensure the accordion takes full width */
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: transparent; /* Remove background color */
+}
+
+.accordion-title h4 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.accordion-content {
+    padding: 10px 20px;
+    background-color: transparent; /* Remove background color */
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .about-container, .team-section, .learn-container {
+        padding: 5vw; /* Increase padding for smaller screens */
+        margin: 0; /* Remove margins for smaller screens */
+    }
+
+    h1 {
+        font-size: 8vw; /* Increase font size for smaller screens */
+        margin: 0 0 0 5vw; /* Adjust margin for smaller screens */
+    }
+
+    p {
+        font-size: 4vw; /* Increase font size for smaller screens */
+        margin: 0 0 0 5vw; /* Adjust margin for smaller screens */
+    }
+
+    .team-section h1 {
+        font-size: 8vw; /* Increase font size for smaller screens */
+    }
+
+    .learn-container img {
+        width: 5vw; /* Increase image size for smaller screens */
+        height: 5vw; /* Increase image size for smaller screens */
+    }
+}
+.model-diagram {
+    width: 100%; /* Make the image responsive */
+    max-width: 600px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Add some space above the image */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin-left: auto; /* Center the image horizontally */
+    margin-right: auto; /* Center the image horizontally */
+  }

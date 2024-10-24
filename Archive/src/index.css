@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'SUSE-SemiBold';
+    src: url('/path/to/SUSE-SemiBold.ttf') format('truetype'); /* Adjust the path as needed */
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SUSE-SemiBold', sans-serif; /* Apply SUSE-SemiBold font */
+  }
+  
+  .container {
+    width: 100vw;
+    min-height: 100vh;
+    background: white; /* Change background to white */
+  }
+  
+  .container.dark {
+    background: white; /* Change background to white for dark mode as well */
+  }

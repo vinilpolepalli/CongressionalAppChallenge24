@@ -1,0 +1,39 @@
+.footer-container {
+    padding: 20px;
+    background-color: #333; /* Dark grey background */
+    border-top: 1px solid #ccc;
+    max-width: 100%;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white; /* Make text white */
+}
+
+.footer-container h1 {
+    font-family: 'SUSE-SemiBold', sans-serif; /* Use SUSE-SemiBold font */
+    font-size: 1.5rem; /* Make the font size smaller */
+    margin-bottom: 20px;
+}
+
+.footer-line {
+    border: none;
+    border-top: 2px solid #888; /* Make the line thicker and darker grey */
+    margin: 20px auto; /* Center the line */
+    width: 50%; /* Set the width to make the line shorter */
+}
+
+.footer-logo {
+    width: 200px; /* Increase the size of the logo */
+    height: auto;
+    margin-top: 5px; /* Decrease the distance between the logo and the footer line */
+    margin-bottom: 2px; /* Reduce the space below the logo */
+}
+
+.form-image {
+    width: 40px; /* Make the form image slightly bigger */
+    height: auto;
+    margin: 2px auto 0; /* Center the image and reduce the space above it */
+    display: block; /* Make the image a block element */
+    cursor: pointer; /* Make the image look clickable */
+    filter: invert(1); /* Invert the colors of the image */
+}

@@ -1,0 +1,301 @@
+@font-face {
+  font-family: 'SUSE-Regular';
+  src: url('src/assets/static/SUSE-Regular.ttf') format('truetype');
+}
+
+.analyze-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align items at the top */
+  min-height: 100vh; /* Minimum height to cover the viewport */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(255, 138, 138, 0.4), rgba(250, 222, 177, 0.4), rgba(225, 246, 255, 0.4)); /* Linear gradient background */
+  padding-top: 5%; /* Decrease padding at the top to raise content */
+  padding-bottom: 5%; /* Add padding at the bottom */
+  position: relative; /* For overlay positioning */
+}
+
+.dashed-box {
+  border: 4px dashed #333; /* Dark grey border */
+  padding: 20px; /* Padding inside the box */
+  background-color: transparent; /* Transparent background */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  border-radius: 20px;
+  margin-top: 2.5%;
+}
+
+.analyze-container h1 {
+  font-family: 'SUSE-ExtraBold', sans-serif; /* Apply SUSE-ExtraBold font */
+  font-size: 36px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin: 0 15%;
+  margin-bottom: 1.5%;
+  padding-top: 0.5%; /* Reduced padding */
+  transition: opacity 0.3s ease; /* Smooth transition for hiding */
+}
+
+.analysis-image {
+  width: 50px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 2.5%;
+  margin-bottom: 10px; /* Space below the image */
+  margin-left: 65%; /* Shift image slightly to the right */
+  transform: rotate(30deg); /* Rotate the image slightly */
+}
+
+.upload-button {
+  background-color: #ff6666; /* Light red background color */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 50px; /* Pill-shaped corners */
+  padding: 15px 30px; /* Bigger padding for a larger button */
+  cursor: pointer;
+  font-size: 24px; /* Bigger font size */
+  margin-top: 10px; /* Space above the button */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  margin-bottom: 20%;
+}
+
+.upload-button:hover {
+  background-color: #ff7777; /* Slightly darker red on hover */
+}
+
+.upload-message {
+  font-family: 'SUSE-Regular', sans-serif; /* Apply SUSE-Regular font */
+  font-size: 16px; /* Adjust font size as needed */
+  color: green; /* Adjust text color as needed */
+  margin-top: 10px; /* Space above the message */
+}
+
+.description-text {
+  font-family: 'SUSE-Regular', sans-serif; /* Apply SUSE-Regular font */
+  font-size: 18px; /* Adjust font size as needed */
+  color: black; /* Adjust text color as needed */
+  margin-top: 20px; /* Space above the description */
+  width: 80%; /* Adjust width as needed */
+  text-align: center; /* Center text horizontally */
+  margin-left: auto; /* Center the element itself */
+  margin-right: auto; /* Center the element itself */
+}
+
+.overlay {
+  position: fixed; /* Cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 102, 102, 0.8); /* Light red background similar to button */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items at the top */
+  padding-top: 20%; /* Adjust padding to move text lower */
+  z-index: 10; /* Ensure overlay is on top */
+  backdrop-filter: blur(5px); /* Reduced frosted glass effect */
+}
+
+.overlay p {
+  color: white; /* White text color */
+  font-size: 48px; /* Bigger font size */
+  font-family: 'SUSE-ExtraBold', sans-serif; /* Apply SUSE-ExtraBold font */
+  text-align: center; /* Center text horizontally */
+}
+
+.analyze-container.dragging {
+  backdrop-filter: blur(5px); /* Reduced frosted glass effect */
+}
+
+.analyze-container.dragging .overlay {
+  display: flex; /* Show overlay when dragging */
+}
+
+.result-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploaded-image {
+  max-width: 100%; /* Increase the size of the uploaded image */
+  height: auto;
+  border-radius: 10px;
+}
+
+.prediction-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 20px; /* Move the text closer to the uploaded image */
+}
+
+.prediction-container h2 {
+  font-family: 'SUSE-ExtraBold', sans-serif;
+  font-size: 24px;
+  color: black;
+}
+
+.prediction-container p {
+  font-family: 'SUSE-Regular', sans-serif;
+  font-size: 18px;
+  color: black;
+}
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full viewport width */
+  position: fixed; /* Ensure it covers the entire viewport */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+}
+
+.loading-text {
+  font-size: 24px; /* Increased font size */
+  color: #333;
+  text-align: center; /* Center text */
+  margin-bottom: 2.5%; /* Space between text and progress bar */
+}
+
+.progress-bar {
+  width: 80%; /* Adjusted width */
+  background-color: #f3f3f3;
+  border-radius: 10px; /* Increased border radius */
+  overflow: hidden;
+  height: 30px; /* Increased height */
+}
+
+.progress {
+  height: 40px; /* Increased height */
+  background-color: #ff6666; /* Light red background color */
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 16px; /* Font size for progress percentage */
+  color: #333;
+  text-align: center; /* Center text */
+  margin-top: 2.5%; /* Space between progress bar and text */
+}
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.result-header {
+  font-family: 'SUSE-ExtraBold', sans-serif;
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  margin-top: -2.5%;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Ensure cards have the same height */
+  width: 80%;
+  gap: 20px; /* Add gap between cards */
+}
+
+.uploaded-image-card {
+  flex: 1;
+  max-width: 40%; /* Adjust the width as needed */
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.prediction-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploaded-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.prediction-card h2 {
+  font-family: 'SUSE-ExtraBold', sans-serif;
+  font-size: 32px;
+  color: black;
+  margin-top: 2%;
+}
+
+.prediction-card p {
+  font-family: 'SUSE-Regular', sans-serif;
+  font-size: 30px; /* Increased font size */
+  color: black;
+  text-align: center;
+}
+
+.additional-cards-container {
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  align-items: center;
+  width: 100%;
+  gap: 20px; /* Add gap between cards */
+  margin-top: 20px; /* Space above the additional cards */
+}
+
+.additional-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%; /* Adjust width as needed */
+}
+
+.additional-card h2 {
+  font-family: 'SUSE-ExtraBold', sans-serif;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.additional-card p {
+  font-family: 'SUSE-Regular', sans-serif;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
